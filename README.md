@@ -144,4 +144,4 @@ ng test
 - Связь **lol@kek-work.ru**
 
 ### Лицензия
-Проект распространяется под лицензией [MIT LISENCE](LISENCE).
+Проект распространяется под лицензией [MIT LICENSE](LICENSE).
