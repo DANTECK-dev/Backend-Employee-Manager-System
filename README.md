@@ -1,142 +1,87 @@
 # Система управления сотрудниками (EMS) Backend (SpringBoot)
 #### Для фронтенда на Angular 
 
-Проект представляет собой систему управления сотрудниками, состоящую из двух модулей: бэкенда на **Spring Boot** и фронтенда на **Angular**. Данные хранятся в базе данных **MySQL**. Приложение позволяет выполнять основные CRUD-операции: просмотр, добавление, редактирование и удаление информации о сотрудниках.
+## Описание проекта
+
+Employee Manager System — это Fullstack-приложение для управления сотрудниками, созданное с использованием **Spring Boot**, **Angular** и **MySQL**. Система позволяет выполнять следующие операции:
+
+- Просмотр списка сотрудников.
+- Добавление новых сотрудников.
+- Редактирование данных существующих сотрудников.
+- Удаление сотрудников.
 
 >Ссылка на [Frontend](https://github.com/DANTECK-dev/Frontend-Employee-Manager-System)
 
+## Стек технологий
 
-## Функциональные возможности
+### Backend:
+- **Spring Boot** 3.2.2: Основной фреймворк для разработки REST API.
+- **Spring Data JPA**: Для взаимодействия с базой данных.
+- **MySQL**: Реляционная база данных.
+- **Hibernate**: ORM для работы с данными.
+- **Maven**: Для управления зависимостями.
 
-- Просмотр списка сотрудников.
-- Добавление нового сотрудника.
-- Редактирование данных сотрудника.
-- Удаление сотрудника.
-- Поиск сотрудников по имени или email.
-
-
-## Технологии
-
-- **Бэкенд**: 
-  - Java 17
-  - Spring Boot
-  - Hibernate
-  - MySQL
-  - REST API
-
-- **Фронтенд**:
-  - Angular 15+
-  - TypeScript
-  - Bootstrap
-
-- **Тестирование**:
-  - JUnit, Mockito (для бэкенда)
-  - Karma, Jasmine (для фронтенда)
-
+### Frontend:
+- **Angular**: Для создания пользовательского интерфейса.
 
 ## Установка и запуск
 
-### 1. Системные требования
-- **Java** 17+
-- **Node.js** 16+ и npm
-- **MySQL** 8.0+
-- **Maven** 3.8+
-- **Git**
+### Backend
 
-### 2. Клонирование репозитория
-Склонируйте проект:
-```bash
-git clone https://github.com/ваш-репозиторий/EMS.git
-cd EMS
-```
+1. Убедитесь, что у вас установлены:
+   - **Java 21** или выше.
+   - **Maven**.
 
-### 3. Настройка базы данных
-1. Создайте базу данных MySQL:
-   ```sql
-   CREATE DATABASE ems_db;
-   ```
-2. Настройте подключение к базе данных в файле `application.properties`:
-   ```properties
-   spring.datasource.url=jdbc:mysql://localhost:3306/ems_db
-   spring.datasource.username=ваш_пользователь
-   spring.datasource.password=ваш_пароль
-   ```
-
-### 4. Запуск бэкенда
-1. Перейдите в директорию `Backend`:
+2. Склонируйте репозиторий:
    ```bash
-   cd Backend
+   git clone <ссылка-на-репозиторий>
    ```
-2. Соберите и запустите приложение:
+
+3. Настройте подключение к базе данных MySQL:
+    - В файле `application.properties` укажите параметры подключения:
+      ```properties
+      spring.datasource.url=jdbc:mysql://localhost:3306/employee_db
+      spring.datasource.username=ваш_пользователь
+      spring.datasource.password=ваш_пароль
+      spring.jpa.hibernate.ddl-auto=update
+      ```
+
+4. Запустите backend-приложение:
    ```bash
-   mvn clean install
    mvn spring-boot:run
    ```
 
-### 5. Запуск фронтенда
-1. Перейдите в директорию `Frontend/angular_frontend`:
+### Frontend
+
+1. Убедитесь, что у вас установлены:
+    - **Node.js** и **npm**.
+
+2. Перейдите в папку с frontend-частью приложения:
    ```bash
-   cd Frontend/angular_frontend
+   cd frontend
    ```
-2. Установите зависимости:
+
+3. Установите зависимости:
    ```bash
    npm install
    ```
-3. Запустите приложение:
+
+4. Запустите приложение:
    ```bash
-   ng start
+   ng serve
    ```
-4. Откройте приложение в браузере по адресу: [http://localhost:4200](http://localhost:4200)
 
+5. Откройте браузер и перейдите по адресу:
+   ```
+   http://localhost:4200
+   ```
 
-## Тестирование
+## Основные API эндпоинты
 
-### 1. Тестирование бэкенда
-Запустите unit-тесты с помощью Maven:
-```bash
-mvn test
-```
-
-### 2. Тестирование фронтенда
-Запустите unit-тесты с помощью Karma:
-```bash
-ng test
-```
-
-## Штатный режим работы
-После успешного запуска система будет доступна:
-- **Фронтенд**: [http://localhost:4200](http://localhost:4200)
-- **Бэкенд API**: [http://localhost:8080/api/employees](http://localhost:8080/api/employees)
-
-Примеры маршрутов:
-- Получение всех сотрудников: `GET /api/employees`
-- Добавление сотрудника: `POST /api/employees`
-- Редактирование сотрудника: `PUT /api/employees/{id}`
-- Удаление сотрудника: `DELETE /api/employees/{id}`
-
-
-## Разработка
-
-1. **Фронтенд**:
-   - Код находится в папке `Frontend/angular_frontend`.
-   - Для сборки в production:
-     ```bash
-     ng build prod
-     ```
-
-2. **Бэкенд**:
-   - Код находится в папке `Backend`.
-   - Для сборки jar-файла:
-     ```bash
-     mvn package
-     ```
-
-## Дополнительная информация
-
-### Ссылки
-- [Документация Spring Boot](https://spring.io/projects/spring-boot)
-- [Документация Angular](https://angular.io/docs)
-- [MySQL Reference Manual](https://dev.mysql.com/doc/)
+- **GET /api/employees**: Получение списка сотрудников.
+- **POST /api/employees**: Добавление нового сотрудника.
+- **PUT /api/employees/{id}**: Редактирование данных сотрудника.
+- **DELETE /api/employees/{id}**: Удаление сотрудника.
 
 ### Автор
 - Cтудент **Александр Немеров**
